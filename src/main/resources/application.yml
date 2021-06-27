@@ -7,9 +7,13 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: discovery-client
+        - id: bootdemo
+          uri: http://bootdemo:8080/
+          predicates:
+            - Path=/api/bootdemo/**
+        - id: discovery
           uri: http://discovery-client:8090/
           predicates:
-            - Path=/discovery/**
+            - Path=/api/discovery/**
         #   filters:
         #     - StripPrefix=1
