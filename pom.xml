@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
+		<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.5.2</version>
@@ -20,6 +20,22 @@
 		<spring-cloud.version>2020.0.3</spring-cloud.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -44,9 +60,9 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-kubernetes</artifactId>
-			<version>1.0.1.RELEASE</version>
+			<version>1.1.2.RELEASE</version>
 		</dependency>
-<dependency>
+		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-kubernetes-ribbon</artifactId>
 			<version>1.0.1.RELEASE</version>
@@ -56,6 +72,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -66,6 +83,9 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+	
+
+		
 		</dependencies>
 	</dependencyManagement>
 
@@ -82,13 +102,21 @@
 				<configuration>
 					<from>
 						<image>dockr.jfrog.io/mido-docker/arm64v8/openjdk:11-jre-slim</image>
+						<auth>
+							<username>midoshkm@gmail.com</username>
+							<password>Jfrog@123</password>
+						</auth>
 					</from>
 					<to>
 						<image>dockr.jfrog.io/mido-docker/api-gateway:latest</image>
+						<auth>
+							<username>midoshkm@gmail.com</username>
+							<password>Jfrog@123</password>
+						</auth>
 					</to>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
+

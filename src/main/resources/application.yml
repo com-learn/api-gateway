@@ -8,11 +8,11 @@ spring:
     gateway:
       routes:
         - id: bootdemo
-          uri: http://bootdemo:8080/
+          uri: lb://bootdemo/
           predicates:
             - Path=/api/bootdemo/**
         - id: discovery
-          uri: http://discovery-client:8090/
+          uri: lb://discovery-client/
           predicates:
             - Path=/api/discovery/**
         #   filters:
